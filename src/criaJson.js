@@ -4,15 +4,15 @@ const Path = require('path')
 
 function criandoJSON() {
 
-    const caminhoJson = Path.resolve(__dirname, 'files', 'distribuicao.json')
+    const caminhoJson = Path.resolve('././files', 'distribuicao.json')
 
     Fs.writeFile(caminhoJson, "", (err) => {
         if (err) throw err;
         console.log('O arquivo foi criado!');
     });
 
-    const csv = Path.resolve(__dirname, 'files', 'distribuicao_respiradores.csv')
-    const json = Path.resolve(__dirname, 'files', 'distribuicao.json')
+    const csv = Path.resolve('././files', 'distribuicao_respiradores.csv')
+    const json = Path.resolve('././files', 'distribuicao.json')
 
     let fileInputName = csv;
     let fileOutputName = json;

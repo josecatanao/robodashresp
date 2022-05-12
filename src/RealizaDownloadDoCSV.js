@@ -5,7 +5,7 @@ const Axios = require('axios')
 
 async function downloadDoCSV() {
     const url = 'https://sage.saude.gov.br/dados/repositorio/distribuicao_respiradores.csv'
-    const path = Path.resolve(__dirname, 'files', 'distribuicao_respiradores.csv')
+    const path = Path.resolve('././files', 'distribuicao_respiradores.csv')
     const writer = Fs.createWriteStream(path)
 
     const response = await Axios({
