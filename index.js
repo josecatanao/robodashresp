@@ -7,13 +7,36 @@ const express = require('express');
 const Distribuicao = require('./models/dados.js')
 conectandoMongo()
 
-/*
-async function teste(){
-        await Distribuicao.create({DATA:"10/20/200"}) 
+
+async function teste() {
+    try {
+        
+        await Distribuicao.create(
+            [{
+                DATA: "21/05/2020",
+                FORNECEDOR: "valerio",
+                DESTINO: "ACRE",
+                ESTADOMUNICIPIO:"ESTADO",
+                TIPO: "UTI",
+                QUANTIDADE:  20 ,
+                VALOR:  120000000 ,
+                DESTINATARIO: "Secretaria Estadual de Saúde",
+                UF: "AC",
+                DATADEENTREGA: "02/10/2000"
+            }]
+        )
+
+        console.log("Salvo com sucesso")
+
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 teste()
-*/
+
+
 downloadDoCSV().then(() => {
     criaJson()
     limpaDados()
