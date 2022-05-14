@@ -17,7 +17,7 @@ const mongoose = require('mongoose')
 
 const Distribuicao = new mongoose.Schema({
     DATA: {
-        type: String, 
+        type: Date, 
         require: true
     },
     FORNECEDOR: {
@@ -53,7 +53,7 @@ const Distribuicao = new mongoose.Schema({
         require: true
     },
     DATADEENTREGA:{
-        type: String,
+        type: Date,
         require: true
     }
 
