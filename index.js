@@ -13,7 +13,7 @@ const port = 3000;
 
 conectandoMongo()
 
-var distribuicaoJSON = ["ola"]
+var distribuicaoJSON = [{}]
 
 
 
