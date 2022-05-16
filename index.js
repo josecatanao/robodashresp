@@ -13,6 +13,9 @@ const port = 3000;
 
 conectandoMongo()
 
+var distribuicaoJSON = ["ola"]
+
+
 
 setInterval(() => {
 
@@ -27,14 +30,15 @@ setInterval(() => {
     setTimeout(() => {
         insereValoresNoBanco()
         dataJson = fs.readFileSync('./files/distribuicao.json')
-        const distribuicao = JSON.parse(dataJson)
-        app.get('/', (req, res) => {
-            res.json(distribuicao)
-        })
+        distribuicaoJSON = JSON.parse(dataJson)
         console.log("Foi a expresão dos valores no banco")
-    }, 300000);//5m
+    }, 60000);//5m
     console.log("Foi")
-},600000);   //10 m 
+}, 120000);   //10 m 
+
+app.get('/', (req, res) => {
+    res.json(distribuicaoJSON)
+})
 
 
 app.listen(port, () => {
