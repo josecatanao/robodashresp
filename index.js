@@ -31,10 +31,10 @@ setInterval(() => {
         insereValoresNoBanco()
         dataJson = fs.readFileSync('./files/distribuicao.json')
         distribuicaoJSON = JSON.parse(dataJson)
-        console.log("Foi a expresão dos valores no banco")
+        console.log("valor json salvo no bonco de dados")
     }, 60000);//5m
     console.log("Foi")
-}, 120000); //10 m 
+}, 120000);//10 m 
 
 app.get('/', (req, res) => {
     res.json(distribuicaoJSON)
