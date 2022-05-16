@@ -20,7 +20,7 @@ var distribuicaoJSON = ["ola"]
 setInterval(() => {
 
     downloadDoCSV().then(() => {
-        criaJson()
+        criaJson() 
         limpaDados()
         Distribuicao.deleteMany().then((valor) => {
             console.log("Banco de dados ajustado: ", valor.deletedCount)
@@ -34,7 +34,7 @@ setInterval(() => {
         console.log("Foi a expresão dos valores no banco")
     }, 60000);//5m
     console.log("Foi")
-}, 120000);   //10 m 
+}, 120000); //10 m 
 
 app.get('/', (req, res) => {
     res.json(distribuicaoJSON)
