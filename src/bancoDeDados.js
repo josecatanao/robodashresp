@@ -3,7 +3,7 @@ require("dotenv").config()
 
 function conecaoMongo() {
 
-    mongoose.connect(process.env.DATABASE_URL,{
+    mongoose.connect('mongodb+srv://teste:0000@cluster0.uyv4q.mongodb.net/bancoparateste?retryWrites=true&w=majority',{
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
