@@ -34,7 +34,7 @@ setInterval(() => {
         console.log("Foi a expresão dos valores no banco")
     }, 300000);//5m
     console.log("Foi")
-},600000); //10 m 
+},600000);   //10 m 
 
 
 app.listen(port, () => {
