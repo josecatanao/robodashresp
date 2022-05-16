@@ -32,7 +32,7 @@ setInterval(() => {
         dataJson = fs.readFileSync('./files/distribuicao.json')
         distribuicaoJSON = JSON.parse(dataJson)
         console.log("valor json salvo no bonco de dados")
-    }, 1);//5m
+    }, 60000);//5m
     console.log("Foi")
 }, 120000);//10 m 
 
