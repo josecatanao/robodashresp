@@ -1,44 +1,41 @@
+const express = require('express');
+const fs = require('fs')
+
 const downloadDoCSV = require('./src/RealizaDownloadDoCSV');
 const criaJson = require('./src/criaJson');
 const limpaDados = require('./src/limpaDados');
 const conectandoMongo = require('./src/bancoDeDados');
-const express = require('express');
-const fs =  require('fs')
-
-const Distribuicao = require('./models/dados.js');
-conectandoMongo()
-
-
-downloadDoCSV().then(() => {
-    criaJson()
-    limpaDados()
-})
-
-
-
-
-async function insereValoresNoBanco() {
-        try {
-            const data  = fs.readFileSync('./files/distribuicao.json', 'utf-8')
-            const valoresDistribuicao = JSON.parse(data)
-            await Distribuicao.create(valoresDistribuicao)
-    
-            console.log("Salvo com sucesso")
-    
-        } catch (error) {
-            console.log("apresentou algumas inconsistencias")
-        }
-        
-    }
-    
-    insereValoresNoBanco()
+const insereValoresNoBanco = require('./src/insereValoresBD');
+const Distribuicao = require('./models/dados');
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+conectandoMongo()
+
+
+setInterval(() => {
+
+    downloadDoCSV().then(() => {
+        criaJson()
+        limpaDados()
+        Distribuicao.deleteMany().then((valor) => {
+            console.log("Banco de dados ajustado: ", valor.deletedCount)
+        })
+    })
+
+    setTimeout(() => {
+        insereValoresNoBanco()
+        dataJson = fs.readFileSync('./files/distribuicao.json')
+        const distribuicao = JSON.parse(dataJson)
+        app.get('/', (req, res) => {
+            res.json(distribuicao)
+        })
+        console.log("Foi a expresão dos valores no banco")
+    }, 300000);//5m
+    console.log("Foi")
+},3600000); //1 h 
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

@@ -1,20 +1,5 @@
 const mongoose = require('mongoose')
 
-/*
- {
-  "DATA": "21/05/2020",
-  "FORNECEDOR": "VYAIRE",
-  "DESTINO": "ACRE",
-  "ESTADO/MUNICIPIO": "ESTADO",
-  "TIPO": "UTI",
-  "QUANTIDADE":  20 ,
-  "VALOR":  120000000 ,
-  "DESTINATARIO": "Secretaria Estadual de Saúde",
-  "UF": "AC",
-  "DATADEENTREGA": "23/05/2020"
- }
-*/
-
 const Distribuicao = new mongoose.Schema({
     DATA: {
         type: Date, 
