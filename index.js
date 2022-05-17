@@ -31,8 +31,8 @@ setInterval(() => {
     setTimeout(() => {
         console.log("vai entrar na função insereValorNoBanco")
         insereValoresNoBanco()
-        //dataJson = fs.readFileSync('./files/distribuicao.json')
-       // distribuicaoJSON = JSON.parse(dataJson)
+        dataJson = fs.readFileSync('./files/distribuicao.json')
+        distribuicaoJSON = JSON.parse(dataJson)
         console.log("intervalo do setTimeout")
     }, 60000);//1m
 }, 120000);//2m
@@ -42,6 +42,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen((process.env.PORT || 5000), () => {
+app.listen(/*(process.env.PORT || 5000)*/3000, () => {
     console.log(`Conectado na porta: ${port}`)
 })
