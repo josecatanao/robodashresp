@@ -7,8 +7,7 @@ async function insereValoresNoBanco() {
         const data  = fs.readFileSync('././files/distribuicao.json', 'utf-8')
         const valoresDistribuicao = JSON.parse(data)
         await Distribuicao.create(valoresDistribuicao)
-
-        console.log("Salvo com sucesso")
+        console.log("Salvo com sucesso no MongoDB atlas")
     } catch (error) {
         console.log(error)
     }

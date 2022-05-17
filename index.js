@@ -23,18 +23,18 @@ setInterval(() => {
         criaJson() 
         limpaDados()
         Distribuicao.deleteMany().then((valor) => {
-            console.log("Banco de dados ajustado: ", valor.deletedCount)
+            console.log("Banco de dados limpos: ", valor.deletedCount)
         })
+        console.log("Entrou na função downloadDoCSV")
     })
 
     setTimeout(() => {
         insereValoresNoBanco()
         dataJson = fs.readFileSync('./files/distribuicao.json')
         distribuicaoJSON = JSON.parse(dataJson)
-        console.log("valor json salvo no bonco de dados")
-    }, 60000);//5m
-    console.log("Foi")
-}, 120000);//10 m 
+        console.log("intervalo do setTimeout")
+    }, 60000);//1m
+}, 120000);//2m
 
 app.get('/', (req, res) => {
     res.json(distribuicaoJSON)
@@ -42,5 +42,5 @@ app.get('/', (req, res) => {
 
 
 app.listen((process.env.PORT || 5000), () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Conectado na porta: ${port}`)
 })
