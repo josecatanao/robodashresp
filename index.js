@@ -31,8 +31,8 @@ setInterval(() => {
     setTimeout(() => {
         console.log("vai entrar na função insereValorNoBanco")
         insereValoresNoBanco()
-        dataJson = fs.readFileSync('./files/distribuicao.json')
-        distribuicaoJSON = JSON.parse(dataJson)
+        //dataJson = fs.readFileSync('./files/distribuicao.json')
+       // distribuicaoJSON = JSON.parse(dataJson)
         console.log("intervalo do setTimeout")
     }, 60000);//1m
 }, 120000);//2m
