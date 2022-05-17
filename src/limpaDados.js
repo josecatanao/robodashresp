@@ -53,7 +53,7 @@ function limpaDados() {
 
           fs.writeFile('./files/distribuicao.json', dadosFormatados, (err) => {
                if (err) throw err;
-               console.log('O arquivo foi trasformado');
+               console.log('O arquivo foi limpo');
           });
 
      })

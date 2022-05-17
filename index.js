@@ -29,6 +29,7 @@ setInterval(() => {
     })
 
     setTimeout(() => {
+        console.log("vai entrar na função insereValorNoBanco")
         insereValoresNoBanco()
         dataJson = fs.readFileSync('./files/distribuicao.json')
         distribuicaoJSON = JSON.parse(dataJson)
