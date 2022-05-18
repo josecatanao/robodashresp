@@ -6,7 +6,7 @@ function limpaDados() {
 
           dadosFormatadosSemPontoVirgula = dadosDoArquivoJson.replace(/[R][$][ ]/g, "").replace(/(?<="VALOR": ).*(?=,)/g, (dados) => {
                valor = dados.replace(`"`, " ").replace(`"`, " ").replace(/,00/g, "").replace(".", "").replace(".", "").replace(",",".")
-               return Math.ceil(valor)
+               return (valor)
                 
           })
 
