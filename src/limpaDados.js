@@ -3,9 +3,11 @@ var fs = require('fs');
 function limpaDados() {
 
      fs.readFile('./files/distribuicao.json', 'utf-8', function (err, dadosDoArquivoJson) {
-          if (err) throw err;
+
           dadosFormatadosSemPontoVirgula = dadosDoArquivoJson.replace(/[R][$][ ]/g, "").replace(/(?<="VALOR": ).*(?=,)/g, (dados) => {
-               return dados.replace(`"`, " ").replace(`"`, " ").replace(",", "").replace(".", "").replace(".", "")
+               valor = dados.replace(`"`, " ").replace(`"`, " ").replace(/,00/g, "").replace(".", "").replace(".", "").replace(",",".")
+               return Math.ceil(valor)
+                
           })
 
           dadosSemMultZeros = dadosFormatadosSemPontoVirgula.replace(/(?<="VALOR": ).*(?=,)/g, (dados) => {

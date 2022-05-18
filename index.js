@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs')
+const fs = require('fs');
 
 const downloadDoCSV = require('./src/RealizaDownloadDoCSV');
 const criaJson = require('./src/criaJson');
@@ -16,27 +16,24 @@ conectandoMongo()
 var distribuicaoJSON = [{}]
 
 
-
 setInterval(() => {
-
     downloadDoCSV().then(() => {
-        criaJson() 
+        criaJson()
         limpaDados()
-        Distribuicao.deleteMany().then((valor) => {
+       Distribuicao.deleteMany().then((valor) => {
             console.log("Banco de dados limpos: ", valor.deletedCount)
         })
         console.log("Entrou na função downloadDoCSV")
     })
 
-    setTimeout(() => {
+   setTimeout(() => {
         console.log("vai entrar na função insereValorNoBanco")
         insereValoresNoBanco()
         dataJson = fs.readFileSync('./files/distribuicao.json')
         distribuicaoJSON = JSON.parse(dataJson)
         console.log("intervalo do setTimeout")
     }, 60000);//1m
-}, 120000);//2m
-
+}, 120000);//2m 120000
 app.get('/', (req, res) => {
     res.json(distribuicaoJSON)
 })
