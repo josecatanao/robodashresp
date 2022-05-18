@@ -13,28 +13,24 @@ const port = 3000;
 
 conectandoMongo()
 
-var distribuicaoJSON = [{}]
-
 
 setInterval(() => {
     downloadDoCSV().then(() => {
         criaJson()
         limpaDados()
-       Distribuicao.deleteMany().then((valor) => {
+        Distribuicao.deleteMany().then((valor) => {
             console.log("Banco de dados limpos: ", valor.deletedCount)
         })
-        console.log("Entrou na função downloadDoCSV")
     })
 
-   setTimeout(() => {
-        console.log("vai entrar na função insereValorNoBanco")
+    setTimeout(() => {
         insereValoresNoBanco()
-        dataJson = fs.readFileSync('./files/distribuicao.json')
-        distribuicaoJSON = JSON.parse(dataJson)
-        console.log("intervalo do setTimeout")
     }, 60000);//1m
-}, 120000);//2m 120000
+}, 120000);//2m 
+
 app.get('/', (req, res) => {
+    dataJson = fs.readFileSync('./files/distribuicao.json')
+    distribuicaoJSON = JSON.parse(dataJson)
     res.json(distribuicaoJSON)
 })
 

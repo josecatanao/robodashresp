@@ -55,7 +55,7 @@ function limpaDados() {
 
           fs.writeFile('./files/distribuicao.json', dadosFormatados, (err) => {
                if (err) throw err;
-               console.log('O arquivo foi limpo');
+               console.log('O arquivo json foi limpo');
           });
 
      })

@@ -8,7 +8,7 @@ function criandoJSON() {
 
     Fs.writeFile(caminhoJson, "", (err) => {
         if (err) throw err;
-        console.log('O arquivo foi criado!');
+        console.log('O arquivo json foi gerado!');
     });
 
     const csv = Path.resolve('././files', 'distribuicao_respiradores.csv')
