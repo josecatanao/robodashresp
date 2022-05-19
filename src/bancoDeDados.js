@@ -3,10 +3,11 @@ require("dotenv").config()
 
 function conecaoMongo() {
 
-    mongoose.connect('mongodb+srv://teste:0000@cluster0.uyv4q.mongodb.net/bancoparateste?retryWrites=true&w=majority',{
+    mongoose.connect('mongodb+srv://josecatanao:0000@cluster0.d8slz.mongodb.net/DadosRespiradores?retryWrites=true&w=majority',{
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
+    
 
     const db = mongoose.connection;
     db.on("error", (error) => console.error(error));
