@@ -20,7 +20,7 @@ setInterval(() => {
         limpaDados()
         Distribuicao.deleteMany().then((valor) => {
             console.log("Banco de dados limpos: ", valor.deletedCount)
-        })
+       })
     })
 
     setTimeout(() => {

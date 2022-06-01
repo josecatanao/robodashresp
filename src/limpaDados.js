@@ -48,8 +48,11 @@ function limpaDados() {
           valoresDedataCorretos = dataEntragaFormatada.replace(/(?<="DATADEENTREGA": ).*/g, (dados) => {
                return dados.replace("00/00/", "1000/01/01")
           })
+          ufAjustado = valoresDedataCorretos.replace(/(?<="UF": ).*(?=,)/g, (dados) => {
+               return dados.replace(`-`, "EX")
+          })
           
-          dadosFormatados = valoresDedataCorretos.replace(/(?<="QUANTIDADE": ).*(?=,)/g, (dados) => {
+          dadosFormatados = ufAjustado.replace(/(?<="QUANTIDADE": ).*(?=,)/g, (dados) => {
                return dados.replace(`"`, " ").replace(`"`, " ")
           })
 
